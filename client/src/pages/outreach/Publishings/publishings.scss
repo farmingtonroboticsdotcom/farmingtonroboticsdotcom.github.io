@@ -1,0 +1,29 @@
+#root:has(.publishings-page) {
+    padding-top: 0;
+}
+
+.publishings-page {
+    padding-bottom: 3rem;
+
+    .page-header {
+        height: 60vh;
+        margin-bottom: 3rem;
+
+        .page-header-foreground-container {
+            position: absolute;
+            bottom: 2em;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+            gap: .5em;
+            max-width: 80vw;
+
+            .page-content-outline-container {
+                padding-top: 1em;
+            }
+        }
+    }
+}

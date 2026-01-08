@@ -1,0 +1,301 @@
+@import "tailwindcss";
+
+/* This file doesn't use nesting, so I think it will be fine with vanilla css */
+
+:root {
+    color-scheme: light dark;
+
+    --dark-TEXT: hsl(0, 0%, 90%);
+    --dark-BACKGROUND: hsl(0, 0%, 7%);
+    --dark-BACKGROUND_PASSTHROUGH: hsla(0, 0%, 53%, 0.3);
+    --dark-BACKGROUND_PASSTHROUGH_OUTLINE: hsla(0, 0%, 100%, 1);
+    --dark-MODAL_BACKGROUND: hsl(0, 0%, 10%);
+    --dark-MODAL_OUTLINE: hsl(0, 0%, 15%);
+    --dark-GOLD_PASSTHROUGH: hsla(49, 100%, 65%, 0.4);
+    --dark-BLUE_PASSTHROUGH: hsla(222, 38%, 43%, 0.4);
+    --dark-GOLD_PASSTHROUGH_OUTLINE: rgba(255, 208, 0, 0.6);
+    --dark-BLUE_PASSTHROUGH_OUTLINE: rgba(68, 92, 150, 0.6);
+    --dark-GOLD: hsl(49, 99%, 51%);
+    --dark-BLUE: hsl(238, 97%, 24%);
+    --dark-GOLD_GRADIENT: linear-gradient(10deg, hsl(49, 50%, 38%), hsl(49, 70%, 59%));
+    --dark-BLUE_GRADIENT: linear-gradient(10deg, hsl(212, 50%, 38%), hsl(212, 50%, 59%));
+    --dark-GOLD_GRADIENT_OUTLINE: hsl(49, 100%, 65%);
+    --dark-BLUE_GRADIENT_OUTLINE: hsl(212, 65%, 65%);
+
+    --light-TEXT: hsl(0, 0%, 10%);
+    --light-BACKGROUND: hsl(30, 8%, 80%);
+    --light-BACKGROUND_PASSTHROUGH: hsla(30, 8%, 60%, 0.3);
+    --light-BACKGROUND_PASSTHROUGH_OUTLINE: hsla(30, 8%, 60%, 1);
+    --light-MODAL_BACKGROUND: hsl(30, 10%, 85%);
+    --light-MODAL_OUTLINE: hsl(30, 10%, 92%);
+    --light-GOLD_PASSTHROUGH: hsla(49, 100%, 65%, 0.4);
+    --light-BLUE_PASSTHROUGH: hsla(222, 38%, 43%, 0.4);
+    --light-GOLD_PASSTHROUGH_OUTLINE: hsla(49, 100%, 50%, 0.6);
+    --light-BLUE_PASSTHROUGH_OUTLINE: hsla(222, 38%, 43%, 0.6);
+    --light-GOLD: hsl(49, 99%, 51%);
+    --light-BLUE: hsl(238, 97%, 24%);
+    --light-GOLD_GRADIENT: linear-gradient(10deg, hsl(49, 45%, 48%), hsl(49, 100%, 79%));
+    --light-BLUE_GRADIENT: linear-gradient(10deg, hsl(212, 50%, 60%), hsl(212, 50%, 80%));
+    --light-GOLD_GRADIENT_OUTLINE: hsl(49, 100%, 65%);
+    --light-BLUE_GRADIENT_OUTLINE: hsl(212, 65%, 65%);
+
+    --LINK_COLOR: var(--TEXT);
+
+    --image-border: light-dark(#000000, #ffffff);
+
+    --navbar-height: 52px;
+    --navbar-topbar-height: 28px;
+    --navbar-extended-height: 55vh;
+    --navbar-background: rgba(6, 2, 47, 0.697);
+    --navbar-text-size: 16px;
+    --navbar-transition-time: 0.3s;
+
+    --title-text-size: 3.5rem;
+    --header-text-size: 2.5rem;
+    --subtitle-text-size: 2rem;
+    --large-text-size: 1.25rem;
+    --small-text-size: 0.875rem;
+    --FROST_BLUR: 4px;
+
+    --ROOT_TEXT_SIZE: 18px;
+    --PARAGRAPH_TEXT_SIZE: 1.1rem;
+    --H3_TEXT_SIZE: 1.65rem;
+
+    --mobile-title-text-size: 2.5rem;
+    --mobile-subtitle-text-size: 1.5rem;
+    --mobile-header-text-size: 2rem;
+    --mobile-navbar-extended-height: 100vh;
+
+    --global-background-color: light-dark(#fff, #111);
+    --aux-bg-color: #eee;
+
+    --placeholder-color: #111;
+
+    --platinum-header-color: #4f4f4f;
+    --platinum-header-color-aux: #979696;
+    --bronze-header-color: #936802;
+    --bronze-header-color-aux: #b68001;
+}
+
+.document-mobile {
+    --ROOT_TEXT_SIZE: 14px;
+}
+
+/* DEFAULTS (LIGHT MODE) */
+:root {
+    --TEXT: var(--light-TEXT);
+    --BACKGROUND: var(--light-BACKGROUND);
+    --BACKGROUND_PASSTHROUGH: var(--light-BACKGROUND_PASSTHROUGH);
+    --BACKGROUND_PASSTHROUGH_OUTLINE: var(--light-BACKGROUND_PASSTHROUGH_OUTLINE);
+    --MODAL_BACKGROUND: var(--light-MODAL_BACKGROUND);
+    --MODAL_OUTLINE: var(--light-MODAL_OUTLINE);
+    --GOLD_PASSTHROUGH: var(--light-GOLD_PASSTHROUGH);
+    --BLUE_PASSTHROUGH: var(--light-BLUE_PASSTHROUGH);
+    --GOLD_PASSTHROUGH_OUTLINE: var(--light-GOLD_PASSTHROUGH_OUTLINE);
+    --BLUE_PASSTHROUGH_OUTLINE: var(--light-BLUE_PASSTHROUGH_OUTLINE);
+    --GOLD: var(--light-GOLD);
+    --BLUE: var(--light-BLUE);
+    --GOLD_GRADIENT: var(--light-GOLD_GRADIENT);
+    --BLUE_GRADIENT: var(--light-BLUE_GRADIENT);
+    --GOLD_GRADIENT_OUTLINE: var(--light-GOLD_GRADIENT_OUTLINE);
+    --BLUE_GRADIENT_OUTLINE: var(--light-BLUE_GRADIENT_OUTLINE);
+}
+
+/* IF DARK MODE */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --TEXT: var(--dark-TEXT);
+        --BACKGROUND: var(--dark-BACKGROUND);
+        --BACKGROUND_PASSTHROUGH: var(--dark-BACKGROUND_PASSTHROUGH);
+        --BACKGROUND_PASSTHROUGH_OUTLINE: var(--dark-BACKGROUND_PASSTHROUGH_OUTLINE);
+        --MODAL_BACKGROUND: var(--dark-MODAL_BACKGROUND);
+        --MODAL_OUTLINE: var(--dark-MODAL_OUTLINE);
+        --GOLD_PASSTHROUGH: var(--dark-GOLD_PASSTHROUGH);
+        --BLUE_PASSTHROUGH: var(--dark-BLUE_PASSTHROUGH);
+        --GOLD_PASSTHROUGH_OUTLINE: var(--dark-GOLD_PASSTHROUGH_OUTLINE);
+        --BLUE_PASSTHROUGH_OUTLINE: var(--dark-BLUE_PASSTHROUGH_OUTLINE);
+        --GOLD: var(--dark-GOLD);
+        --BLUE: var(--dark-BLUE);
+        --GOLD_GRADIENT: var(--dark-GOLD_GRADIENT);
+        --BLUE_GRADIENT: var(--dark-BLUE_GRADIENT);
+        --GOLD_GRADIENT_OUTLINE: var(--dark-GOLD_GRADIENT_OUTLINE);
+        --BLUE_GRADIENT_OUTLINE: var(--dark-BLUE_GRADIENT_OUTLINE);
+    }
+}
+
+/* CHANGE NAVBAR EXTENSION TIME/HEIGHT WHEN MOBILE */
+@media (max-width: 1000px) {
+    :root {
+        --navbar-extended-height: 100vh;
+        --navbar-transition-time: 0.35s;
+    }
+}
+
+@media (max-height: 600px) {
+    :root {
+        --navbar-extended-height: 100vh;
+        --navbar-transition-time: 0.35s;
+    }
+}
+
+/* Set HTML Vars */
+html {
+    font-family: "Inter", sans-serif;
+    font-weight: 200;
+    color: var(--TEXT);
+    background: var(--BACKGROUND);
+    font-size: var(--ROOT_TEXT_SIZE);
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+hr {
+    width: 76%;
+    margin: auto;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    border: 1px solid var(--dark-BACKGROUND_PASSTHROUGH);
+    border-radius: 2px;
+}
+
+p a {
+    color: var(--LINK_COLOR);
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+h3 {
+    font-size: var(--H3_TEXT_SIZE);
+    font-weight: 500;
+    margin-bottom: .5rem;
+    margin-top: .2rem;
+}
+
+p {
+    font-size: var(--PARAGRAPH_TEXT_SIZE);
+    padding-bottom: .5rem;
+    letter-spacing: 0.00938em; /* seen in some other code, adds breathing room */
+}
+
+i {
+    font-style: italic;
+}
+
+blockquote {
+    border-left: 2px solid var(--MODAL_OUTLINE);
+    margin: 0.8rem 0.5rem;
+    padding: 1rem;
+    padding-left: 1.5rem;
+}
+
+/* Hide scrollbar */
+html::-webkit-scrollbar {
+    display: none;
+}
+
+/* For all other elements than listed above, inherit all font values */
+* {
+    font: inherit;
+}
+
+/* Simple fade in effects */
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(75%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+.fadeInUp {
+    animation: 0.5s fadeInUp;
+}
+
+@keyframes fadeInDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+.fadeInDown {
+    animation: 0.5s fadeInDown;
+}
+
+@keyframes fadeInLeft {
+    0% {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+}
+
+.fadeInLeft {
+    animation: 0.3s fadeInLeft;
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+.fadeInRight {
+    animation: 0.3s fadeInRight;
+}
+
+@keyframes spinRight {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Simple spin effect */
+@keyframes spinLeft {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.rotating-logo {
+    transition: 0.3s ease;
+}
+
+.spin-in {
+    animation: spinRight 0.3s ease forwards;
+}
+
+.spin-out {
+    animation: spinLeft 0.3s ease forwards;
+}

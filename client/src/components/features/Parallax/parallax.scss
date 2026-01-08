@@ -1,0 +1,45 @@
+.parallax-container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    
+    .parallax-background {
+        // any opacity, transform, or filter properties will be overridden by the script
+        width: 100%;
+        height: 100%;
+    }
+    
+    .parallax-foreground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    // the following is from instances of parallax, not the component itself.
+    .page-header-foreground-container {
+        position: absolute;
+        bottom: 2em;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        gap: 1em;
+        max-width: 80vw;
+
+        .page-header-title {
+            font-size: 2.5rem!important;
+            text-align: center;
+            font-size: 4rem;
+            font-weight: 700;
+            margin: 0;
+            padding: 0 2em;
+            text-shadow: 0 0 16px light-dark(#ffffffaa, #000);
+        }
+    }
+}

@@ -1,0 +1,37 @@
+.button {
+    border-radius: 12px;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease, filter 0.2s ease;
+    filter: brightness(90%);
+    transform: none;
+    color: var(--blue-2);
+    margin-bottom: .5rem;
+    border: 1px solid;
+
+    &.gold {
+        border-color: var(--GOLD_GRADIENT_OUTLINE);
+        background: var(--GOLD_GRADIENT);
+    }
+
+    &.blue {
+        border-color: var(--BLUE_GRADIENT_OUTLINE);
+        background: var(--BLUE_GRADIENT);
+    }
+
+    &:hover {
+        filter: brightness(100%);
+        transform: scale(1.02);
+    }
+
+    &:active {
+        transform: scale(0.98) rotate(-0.4deg);
+        filter: brightness(80%);
+    }
+}

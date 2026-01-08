@@ -1,0 +1,6 @@
+<!-- this was, yes, made by team 178 -->
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-5 -5 10 10" style="width: 48; height: auto;" stroke="#fff">
+    <circle cx="-1" cy="-1" r="2" stroke-width="1" fill="none" />
+    <line x1=".5" y1=".5" x2="3" y2="3" stroke-linecap="round" stroke-width="1" />
+</svg>

@@ -1,0 +1,52 @@
+.style-demos-page {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    .content-container {
+        border-top: 1px solid hsla(0, 0%, 100%, 5%);
+        border-bottom: 1px solid hsla(0, 0%, 100%, 5%);
+    }
+
+    .color-showcase {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 2.5rem 12vw;
+        justify-content: center;
+        row-gap: 2rem;
+        background-color: var(--light-BACKGROUND);
+        
+        .color-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            gap: 12px;
+            width: 25%;
+            padding: 0 .5rem;
+            
+            .color-display {
+                border: 1px solid #000;
+                border-radius: 100%;
+                width: 48px;
+                height: 48px;
+            }
+            
+            .color-name {
+                font-size: 0.8rem;
+                color: hsla(0, 0%, 0%, 60%);
+            }
+        }
+        
+        &.dark {
+            background-color: var(--dark-BACKGROUND);
+
+            .color-display {
+                border: 1px solid #fff;
+            }
+    
+            .color-name {
+                color: hsla(0, 0%, 100%, 60%);
+            }
+        }
+    }
+}

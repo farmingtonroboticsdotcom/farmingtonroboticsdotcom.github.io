@@ -1,0 +1,20 @@
+.badge {
+    font-family: system-ui, "Segoe UI Light", "Tahoma", "Noto Sans", sans-serif;
+    color: #bbb;
+    position: fixed;
+    bottom: 38px;
+    right: 50px;
+    opacity: .4;
+    font-weight: 300;
+    z-index: 99999;
+    text-shadow: 0.2px 0.2px 0.2px black;
+    pointer-events: none;
+
+    .title {
+        font-size: 21px;
+    }
+
+    .content {
+        font-size: 16px;
+    }
+}
