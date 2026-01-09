@@ -1,0 +1,42 @@
+name: Build React App
+run-name: Build + Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '25'
+      - run: npm ci
+      - run: npm run build
+      - run: cp ./dist/index.html ./dist/404.html
+      - run: ls -R ./dist
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: './dist'
+    
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/download-artifact@v5
+      - id: deployment
+        uses: actions/deploy-pages@v4
