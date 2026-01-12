@@ -1,7 +1,6 @@
 import { ReactNode, useCallback, useEffect, useRef, useState } from "react"
 
 import "./expandable.scss";
-import ContentContainer from "../ContentContainer";
 
 export type ExpandableOptions = {
     initialStyles?: Object;

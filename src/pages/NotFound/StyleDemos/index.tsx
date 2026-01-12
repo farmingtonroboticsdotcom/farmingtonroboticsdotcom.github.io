@@ -78,14 +78,14 @@ export default function StyleDemos() {
             <h3>This is an h3 tag, often referred to as a Subtitle.</h3>
             <p>This is a paragraph, the bulk of the website.</p>
             <Button>This is an example of a Button.</Button>
-            <Button colors="blue">This is an example of a blue Button.</Button>
+            <Button color="blue">This is an example of a blue Button.</Button>
 
             <ContentContainer>
                 <h1>This is an h1 tag, also known as a Title.</h1>
                 <h3>This is an h3 tag, often referred to as a Subtitle.</h3>
                 <p>This is a paragraph, the bulk of the website.</p>
                 <Button>This is an example of a Button.</Button>
-                <Button colors="blue">This is an example of a blue Button.</Button>
+                <Button color="blue">This is an example of a blue Button.</Button>
             </ContentContainer>
 
             <ContentContainer>

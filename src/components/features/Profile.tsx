@@ -1,7 +1,5 @@
-// import { useState, useEffect } from 'react';//imports the useEffect & useState components from the React Library
 import Card from "@components/common/Card";
 import Expandable from "./Expandable";
-import { useEffect, useState } from "react";
 import ContentContainer from "./ContentContainer";
 
 export type ProfileProps = {
@@ -18,7 +16,7 @@ export default function Coach(props: ProfileProps) {
     //main function
     const { name, id, role, desc, join } = props;
 
-    const [imageSrc, setImageSrc] = useState("");
+    // const [imageSrc, setImageSrc] = useState("");
 
     // useEffect(() => {
     //     async function importImage() {
@@ -50,7 +48,7 @@ export default function Coach(props: ProfileProps) {
             expandedState={
                 <>
                     <ContentContainer
-                        {...(imageSrc ? { image: { src: imageSrc } } : {})}
+                        // {...(imageSrc ? { image: { src: imageSrc } } : {})}
                     >
                         <h3>{name}</h3>
                         <p>
