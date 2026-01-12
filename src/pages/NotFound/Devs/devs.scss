@@ -1,0 +1,20 @@
+.devs-desc-page {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+
+    .name {
+        font-weight: bold;
+        font-size: 2.25rem;
+    }
+
+    .dev-desc {
+        color: rgb(170, 170, 170);
+        font-size: 1rem;
+        font-weight: 200;
+        margin-bottom: 2vh;;
+    }
+    .dev-paragraph{
+        line-height: 1.75;
+    }
+    
+}

@@ -1,0 +1,129 @@
+#advisors-page {
+
+    #coaches-container,
+    #mentors-container {
+        display: flex;
+        gap: calc(0.02 * 60vw);
+        width: 60vw; // when changing, change value above too
+        margin: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 2rem;
+    }
+
+    .divider {
+        width: 50%;
+        height: 3px;
+        border: none;
+        background-color: var(--yellow-2);
+        border-radius: 3px;
+        margin: auto;
+        margin-top: 3vh;
+        margin-bottom: 5vh;
+    }
+
+    .expandable-menu-container {
+        width: 32%;
+        aspect-ratio: 1;
+
+        .expandable-menu {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .profile-container {
+        background-color: #eee;
+        // border: 2px solid var(--yellow-2);
+        background-color: var(--yellow-3);
+        overflow: clip;
+        border-radius: 8%;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+        position: relative;
+        box-sizing: border-box;
+
+        .profile-front-side {
+            width: 100%;
+            height: 100%;
+
+            .profile-name {
+                line-height: 1;
+                font-weight: 600;
+                display: block;
+            }
+
+            .profile-role {
+                font-weight: 400;
+                font-size: var(--small-text-size);
+                line-height: 1;
+                display: block;
+            }
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-image-overlay {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(10deg,
+                    rgba(0, 0, 0, 0.8),
+                    rgba(0, 0, 0, 0.55) 20%,
+                    rgba(0, 0, 0, 0.1) 35%,
+                    rgba(0, 0, 0, 0) 100%);
+            padding: 7% 10%;
+            display: flex;
+            gap: 4px;
+            flex-direction: column;
+            justify-content: flex-end;
+            font-size: var(--ROOT_TEXT_SIZE);
+            text-shadow: 0 0 8px black;
+        }
+    }
+}
+@media screen and (max-width: 1400px) {
+    #advisors-page .expandable-menu-container {
+        width: 100%;
+    }
+    #advisors-page #coaches-container,
+    #advisors-page #mentors-container {
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #advisors-page .expandable-menu-container {
+        width: 100%;
+    }
+
+    #advisors-page #coaches-container,
+    #advisors-page #mentors-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        width: 75vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    #advisors-page .expandable-menu-container {
+        width: 100%;
+    }
+
+    #advisors-page #coaches-container,
+    #advisors-page #mentors-container {
+        display: flex;
+
+        gap: 2rem;
+        width: 75vw;
+    }
+}

@@ -1,0 +1,77 @@
+// forked from `../ContentContainer/content-container.scss` on August 8, 2025
+
+.timeline-content-container {
+    padding: 0 12vw;
+    width: 100%;
+    margin-top: 1rem;
+
+    .content-heading {
+        font-size: 1.2em;
+        font-weight: 500;
+        transform: translateX(-4.5px);
+
+        .content-timestamp {
+            color: var(--faded-text);
+        }
+    }
+    
+    .content-group {
+        display: flex;
+        justify-content: center;
+        row-gap: 0;
+        column-gap: calc(var(--spacing) * 12);
+        padding-bottom: 2em;
+        padding-left: 1em;
+        border-left: 1px solid gray;
+
+        .content-text {
+            display: flex;
+            color: white;
+            line-height: var(--tw-leading, var(--text-2xl--line-height));
+            width: 40%;
+            flex-grow: 1;
+            flex-direction: column;
+            font-weight: 200;
+            padding-top: 1rem;
+    
+            .content-button {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+    
+        &:has(.content-image) {
+            margin-top: 1.5rem;
+            padding-bottom: 1rem;
+    
+            .content-text {
+                padding-top: 1rem; 
+            }
+        }
+    
+        .content-image {
+            border-radius: 12px;
+            object-fit: cover;
+            width: 20%;
+            // flex-grow: 1;
+            height: min-content;
+            min-width: 40vw;
+            position: relative;
+        }
+    }
+
+}
+
+@media (max-width: 1000px) {
+    .timeline-content-container {
+        flex-direction: column;
+
+        .content-text, .content-image {
+            width: 100%;
+        }
+
+        .content-image {
+            margin-top: 1rem;
+        }
+    }
+}

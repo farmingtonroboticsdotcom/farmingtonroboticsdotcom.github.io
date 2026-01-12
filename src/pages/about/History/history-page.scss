@@ -1,0 +1,87 @@
+$dot-color: #676767;
+$line-color: #565656;
+
+.header{
+    font-size: var(--large-text-size);
+}
+
+.history-page {
+    &:not(.mobile) {
+        padding: 0 12vw;
+    }
+
+    .line {
+        min-width: .2rem;
+        border-radius: .2rem;
+        background-color: var(--BACKGROUND_PASSTHROUGH) !important;
+    }
+
+
+
+    .seperation {
+        margin-top: 5px;
+        margin-bottom: 1rem;
+    }
+
+    &.mobile {
+        padding-left: 16px;
+    }
+
+    .MuiTimelineContent-root {
+        margin-bottom: 2rem;
+    }
+    
+    .year {
+        font-weight: 500;
+        padding-bottom: 0;
+        margin-bottom: 1rem;
+        padding: .5rem;
+        border-radius: .5rem;
+        /* Ensure the year 'pill' sits above the timeline line and renders its rounded corners cleanly */
+        display: inline-block;
+        position: relative;
+        z-index: 3;
+        box-sizing: border-box;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        line-height: 1;
+        text-align: center;
+        color: var(--dark-TEXT);
+    }
+
+    &.mobile .year {
+        font-size: 0.9rem;
+        width: min-content;
+        word-break: break-all;
+        line-height: 1.2em;
+    }
+
+    .timeline-image {
+        border-radius: .5rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    .expandable-menu {
+        overflow: visible;
+    }
+
+    &.mobile .timeline-image {
+        margin-bottom: .8rem;
+    }
+
+    &.mobile .MuiTimelineOppositeContent-root {
+        padding: 0;
+    }
+
+    .MuiTimelineItem-root.left .MuiTimelineOppositeContent-root .timeline-image {
+        max-height: 18rem;
+        margin-left: auto;
+    }
+
+    .MuiTimelineItem-root.right .MuiTimelineOppositeContent-root .timeline-image {
+        max-height: 18rem;
+        margin-right: auto;
+    }
+
+}

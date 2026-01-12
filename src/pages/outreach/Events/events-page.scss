@@ -1,0 +1,83 @@
+#events-page {
+    padding-bottom: 2rem;
+
+    #events-header {
+        overflow: hidden;
+        margin: auto;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        width: 60%;
+        aspect-ratio: 2.5;
+        border-radius: 38px; // same as #event-content-container
+        position: relative;
+        box-shadow: 0 4px 24px var(--yellow-3);
+        border: 4px solid light-dark(var(--blue-2), var(--yellow-2));
+    }
+
+    #events-header img {
+        z-index: 1;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    #header-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        color: var(--light-TEXT);
+        font-weight: 800;
+        font-size: var(--title-text-size);
+        transform: translate(-50%, -50%);
+    }
+
+    #event-content-container {
+        background: var(--aux-bg-color);
+        margin: auto;
+        padding: 24px;
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        gap: 24px;
+        box-sizing: border-box;
+        border-radius: 38px 38px 0 0; // border radius is card radius + padding
+        width: 60%;
+    }
+
+    .countdown-container {
+        box-sizing: border-box;
+        aspect-ratio: 2.5;
+        padding: 24px;
+        background-color: var(--blue-1);
+        color: var(--light-TEXT);
+        border-radius: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        font-size: 1cqi;
+        position: relative;
+        padding-bottom: 6%;
+
+        .countdown-label {
+            font-size: 1.9em;
+            font-weight: 700;
+            border: 1px dashed white;
+            border-radius: 4px;
+            padding: 4px 24px;
+            margin-bottom: 2%;
+        }
+
+        .countdown-display {
+            font-size: 4em;
+            font-weight: 900;
+        }
+
+        .countdown-date {
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+    }
+}

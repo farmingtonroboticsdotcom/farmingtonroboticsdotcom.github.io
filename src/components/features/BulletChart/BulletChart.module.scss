@@ -1,0 +1,54 @@
+.chart {
+    width: 100%;
+    position: relative;
+    margin-bottom: 4rem;
+
+    .track {
+        height: 2em;
+        background: var(--MODAL_BACKGROUND);
+        border-radius: 12px;
+        display: flex;
+        align-items: stretch;
+        overflow: clip;
+        border: 1px solid var(--MODAL_OUTLINE);
+
+        .current {
+            background: var(--BLUE_GRADIENT);
+            height: 100%;
+            border-radius: 6px;
+        }
+    }
+
+    .marker {
+        position: absolute;
+        top: 100%;
+        margin-top: 10px;
+        transform: translateX(-50%);
+
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 12px solid;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .markerContent {
+            position: absolute;
+            top: calc(8px + 100%);
+            text-align: center;
+            
+            margin-top: 4px;
+            font-size: 0.8em;
+        }
+    }
+
+    .marker.goal {
+        border-bottom-color: var(--TEXT);
+    }
+
+    .marker.last {
+        border-bottom-color: var(--TEXT);
+        opacity: 0.8;
+    }
+}

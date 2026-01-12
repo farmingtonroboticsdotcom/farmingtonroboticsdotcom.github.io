@@ -1,0 +1,106 @@
+.expandable-menu {
+    --expandable-blur: 3rem;
+    --expandable-scale: 2;
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    will-change: top, left, width, height, transition;
+    border: 0px solid #00000000;
+    overflow: clip;
+    border-radius: 1.5rem;
+
+    transition: background-color var(--expandable-transition-duration) ease, border-radius var(--expandable-transition-duration) ease, border var(--expandable-transition-duration) ease, box-shadow var(--expandable-transition-duration) ease;
+    
+    .expandable-initial {
+        width: 100%;
+        height: 100%;
+
+        top: 0%;
+        left: 0%;
+
+        transition: transform var(--expandable-transition-duration) ease, opacity var(--expandable-transition-duration) ease-out, filter var(--expandable-transition-duration) ease, top var(--expandable-transition-duration) ease, left var(--expandable-transition-duration) ease;
+        opacity: 1;
+        cursor: pointer;
+    }
+    
+    .expandable-expanded {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+
+        overflow: auto;
+
+        filter: blur(var(--expandable-blur));
+
+        transition: opacity var(--expandable-transition-duration) ease-out, filter var(--expandable-transition-duration) ease;
+
+        box-sizing: border-box;
+
+        .expandable-topbar {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            padding: .8rem;
+            
+            .expandable-close-button {
+                border: 1px solid var(--BACKGROUND_PASSTHROUGH);
+                border-radius: .7rem;
+                padding: .4rem .6rem;
+                line-height: 1;
+                cursor: pointer;
+                font-size: .8rem;
+                font-weight: 600;
+                letter-spacing: .015rem;
+                position: sticky;
+                top: .8rem;
+
+                transition: background-color var(--expandable-transition-duration) ease;
+
+                &:hover {
+                    background: var(--BACKGROUND_PASSTHROUGH);
+                }
+                &:active{
+                    filter: brightness(0.4);
+                }
+            }
+        }
+    }
+}
+
+.expandable-placeholder {
+    display: none;
+}
+
+.expandable-active .expandable-menu {
+    background-color: var(--BACKGROUND);
+    box-shadow: 0 0 1.5rem var(--BACKGROUND);
+    border: 1px solid var(--MODAL_OUTLINE);
+
+    .expandable-initial {
+        opacity: 0;
+        pointer-events: none;
+        filter: blur(var(--expandable-blur));
+        transform: translate(-50%, -50%) scale(var(--expandable-scale));
+        top: 50%;
+        left: 50%;
+    }
+
+    .expandable-expanded {
+        opacity: 1;
+        display: initial;
+        filter: none;
+        pointer-events: all;
+    }
+}
+
+.expandable-en-expansion .expandable-menu {
+    z-index: 9998;
+
+    .expandable-initial {
+        position: absolute;
+    }
+}

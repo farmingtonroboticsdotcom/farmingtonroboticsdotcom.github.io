@@ -1,0 +1,70 @@
+// adds gradient effect to sponsor scroller
+.scroller::before {
+    top: -5%; // so that when they are expanded on hover they dont escape
+    left: 0;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 110%;
+    z-index: 100;
+    background: linear-gradient(90deg, var(--BACKGROUND), #00000000 20%, #00000000 80%, var(--BACKGROUND) 100%);
+    pointer-events: none;
+}
+
+.scrollerContainer {
+    overflow: hidden;
+    width: 100%;
+    background-color: transparent;
+    /* or any background */
+    padding: .5rem 0 2rem 0;
+}
+
+.scroller {
+    width: 100%;
+    display: flex;
+
+    align-items: center;
+    position: relative;
+
+}
+
+.track {
+    display: flex;
+    gap: 20px;
+    width: fit-content;
+}
+
+.sponsor {
+    flex: 0 0 auto;
+    margin: 0 0rem;
+    display: flex;
+    align-items: center;
+    width: 22vw;
+    justify-content: center;
+    height: auto;
+    aspect-ratio: 1;
+}
+
+@media screen and (max-width: 1200px) {
+    .track {
+        gap: 25px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .track {
+        gap: 50px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .track {
+        gap: 100px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .track {
+        gap: 130px;
+    }
+}

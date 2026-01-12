@@ -1,0 +1,45 @@
+.banner-heading {
+    text-align: center;
+    border-radius: 12px;
+    padding: 2rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+
+    margin: 2rem 12vw;
+    border: 1px solid var(--GOLD_PASSTHROUGH_OUTLINE);
+    background: var(--GOLD_PASSTHROUGH);
+}
+
+.banner-heading-blue {
+    border: 1px solid var(--BLUE_PASSTHROUGH_OUTLINE);
+    background: var(--BLUE_PASSTHROUGH);
+}
+
+.banner-heading-gold.banner-heading-has-background::before {
+    content: var(--banner-heading-before-content);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 600%;
+    font-weight: 900;
+    opacity: 0.2;
+    color: var(--GOLD);
+    z-index: 1;
+}
+
+.banner-heading-blue.banner-heading-has-background::before {
+    content: var(--banner-heading-before-content);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 600%;
+    font-weight: 900;
+    opacity: 0.2;
+    color: var(--BLUE);
+    z-index: 1;
+}

@@ -1,0 +1,68 @@
+.team-card {
+    background-color: var(--MODAL_BACKGROUND);
+    border-radius: 1rem;
+    overflow: clip;
+    border: 1px solid var(--MODAL_OUTLINE);
+    height: min-content;
+
+    .team-card-banner {
+        width: 100%;
+        aspect-ratio: 2.2;
+        object-fit: cover;
+        filter: brightness(0.6);
+    }
+
+    .team-card-icon {
+        width: 10%; // size is doubled
+        aspect-ratio: 1; // make square
+        object-fit: cover;
+        border-radius: 20%; // can be % bc its a square
+        transform: translateY(-50%) scale(2) translateX(50%); // move up by half of height, scale by 2, then shift it over to align with text
+        margin-bottom: .8rem;
+    }
+
+    .team-card-info-container {
+        padding: 0rem 1rem 1rem;
+        position: relative;
+    }
+
+    .team-card-contact-list {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 0.2rem;
+        column-gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .team-card-contact-text {
+        font-size: 0.8rem;
+        padding-bottom: 0;
+    }
+
+    hr {
+        margin: 1rem auto 0.8rem;
+    }
+
+    .team-card-desc {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .team-card {
+        .team-card-contact-container {
+            font-size: 1rem;
+        }
+    }
+
+}
+
+// @media screen and (min-width: 1000px) {
+//     .team-card {
+//         .team-card-icon {
+//             width: 20%;
+//         }
+
+//     }
+
+// }

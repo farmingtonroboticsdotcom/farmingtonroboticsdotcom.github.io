@@ -1,0 +1,185 @@
+#page-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--navbar-height);
+}
+
+#disciplines-page {
+    padding-bottom: 3rem;
+
+    .page-header {
+        height: 80vh;
+        position: relative;
+
+        img {
+            object-position: 30% 70%;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    
+    .department-header {
+        display: flex;
+        justify-content: center;
+        font-size: var(--subtitle-text-size);
+        font-weight: bold;
+        padding-bottom: 8vh;
+    }
+    
+    .department-text {
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+        font-size: 2rem;
+        line-height: 1.5;
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .department-photo {
+        display: flex;
+        background: white;
+        max-height: 40vh;
+        // margin-left: 5vw;
+        border-width: 2px;
+        border-color: red;
+        padding: 2vw 5vw 2vw 5vw;
+    
+    }
+    
+    
+    .wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        display: flex;
+        width: 45%;
+        min-width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .department-section {
+        margin-bottom: 20vh;
+    }
+    
+    .page-nav-container {
+        border-width: 4px;
+        border-color: var(--yellow-1);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        /* Stack items vertically */
+        /* Center-align items */
+        font-size: var(--subtitle-text-size);
+        border-radius: 0.75rem;
+        margin-bottom: 10vh;
+        width: fit-content;
+        /* Increase width */
+    
+        /* Add more spacing */
+        margin-left: auto;
+        /* Center container */
+        margin-right: auto;
+        /* Center container */
+    }
+    
+    .nav-header {
+        text-align: center;
+        padding-bottom: 2vh;
+        padding-top: 2vh;
+        font-size: 3rem;
+        font-weight: bold;
+    
+    }
+    
+    .nav-container-items {
+        padding: 1.25rem;
+        padding-right: 7.5rem;
+        border-width: 2px;
+        border-color: var(--yellow-1);
+        border-radius: 0.5rem;
+        margin-bottom: 1.25rem;
+        transition: 0.15s ease;
+    
+    
+    
+    }
+    
+    
+    .nav-container-items:last-child {
+        margin-bottom: 0;
+    }
+    
+    .nav-container-items:hover {
+        transition: 0.15s ease;
+        border-color: var(--yellow-1);
+        background-color: var(--yellow-1);
+        transform: scale(102%);
+    }
+    
+    .nav-container-items:active {
+        background-color: #a58700;
+        transform: scale(95%);
+    }
+    
+    #disciplines-header {
+        margin-top: 5vh;
+        font-size: var(--header-text-size);
+    }
+}
+
+#root:has(#disciplines-page) {
+    padding-top: 0;
+
+    nav {
+        background-color: var(--navbar-background);
+        color: var(--dark-TEXT);
+    }
+
+    nav.navbar-mobile #topbar {
+        backdrop-filter: blur(5px);
+    }
+
+    nav:not(.navbar-mobile) {
+        backdrop-filter: blur(5px);
+    }
+}
+
+@media (max-width: 850px) {
+
+    .page-nav-container {
+        transform: scale(0.8);
+
+        .nav-container-items {
+            font-size: 1.5rem;
+            transition: 0.15s ease;
+            transform: none;
+        }
+    }
+
+    .wrapper {
+        padding: 2rem;
+
+        .department-text {
+            margin-top: 5vh;
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+
+
+
+    }
+
+    #disciplines-page {
+        .page-header {
+            height: 90vh;
+        }
+
+        .page-header-title {
+            font-size: 2.5rem!important;
+        }
+    }
+}
+

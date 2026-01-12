@@ -1,0 +1,41 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(var(--num-columns), 1fr);
+    margin: 2rem;
+    gap: 1rem;
+
+    .card {
+        border: 1px solid var(--MODAL_OUTLINE);
+        border-radius: 1em;
+        padding: 1em;
+
+        .image {
+            aspect-ratio: 1;
+            object-fit: contain;
+        }
+
+        .info {
+            padding-left: 0.5em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.2em;
+
+            .title {
+                font-size: 0.8em;
+            }
+
+            .content {
+                font-weight: 600;
+                font-size: 1.4em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
