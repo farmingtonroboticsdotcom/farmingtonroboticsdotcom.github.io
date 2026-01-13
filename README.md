@@ -1,5 +1,6 @@
 # 📱 Website Redesign 2025
 
+
 Welcome to the redesigned version of the Farmington Robotics website based off of TypeScript React using the [Vite](https://vite.dev) build. 
 It uses [SCSS](https://sass-lang.com) for styling. For more information on React components or hooks, visit [react.dev](https://react.dev) for more information.
 
