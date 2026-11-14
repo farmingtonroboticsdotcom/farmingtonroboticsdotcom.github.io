@@ -10,7 +10,7 @@ import SponsorScroller from "@/components/sections/SponsorScroller";
 import Button from "@/components/common/Button";
 
 import eia2026image from "@assets/images/photos/2026_districts_eia.jpg";
-import banquet2026image from "@assets/images/photos/2026_banquet.JPG";
+import banquet2026image from "@assets/images/photos/2026_banquet.jpg";
 import CompetitionCountdown from "@/components/sections/CompetitionCountdown";
 import HomeParallax from "@pages/Home/HomeParallax.tsx";
 import TeamCalendar from "@components/sections/TeamCalendar.tsx";
