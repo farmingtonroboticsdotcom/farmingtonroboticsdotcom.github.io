@@ -5,7 +5,7 @@ import Parallax from "@/components/features/Parallax";
 import CurvedText from "@/components/features/CurvedText";
 import ContentContainer from "@/components/features/ContentContainer";
 
-import teamPhoto from "@assets/images/photos/2025_team_photo.jpeg";
+import teamPhoto from "@assets/images/photos/2026_team_photo.jpg";
 import gizmoImage from "@assets/images/photos/1998_comp_robot.jpg";
 
 function About() {
@@ -22,7 +22,7 @@ function About() {
                 background={
                     <>
                         <img src={teamPhoto} id="page-header-photo"></img>
-                        <CurvedText text="2 0 2 5" height={1000} curve={0.1} />
+                        <CurvedText text="2 0 2 6" height={1000} curve={0.1} />
                     </>
                 }
             />
@@ -49,6 +49,22 @@ function About() {
                 <h3>Our Mission</h3>
                 <p>We would like to ...</p>
             </ContentContainer>
+
+            <ContentContainer image={{ src: gizmoImage }}>
+                <h3>Partnerships</h3>
+                <p>Mechahawk, Goose</p>
+            </ContentContainer>
+
+            <ContentContainer image={{ src: gizmoImage }} reverse={true}>
+                <h3>Unified Robotics</h3>
+                <p>We are unified.</p>
+            </ContentContainer>
+
+            <ContentContainer image={{ src: gizmoImage }}>
+                <h3>Team Information</h3>
+                <p>You can contact us.</p>
+            </ContentContainer>
+
         </div>
     );
 }

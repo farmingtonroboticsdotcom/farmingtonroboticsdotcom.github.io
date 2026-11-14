@@ -6,19 +6,17 @@ import "./disciplines.scss";
 import Parallax from "@/components/features/Parallax";
 import ContentContainer from "@/components/features/ContentContainer";
 import BannerHeading from "@/components/features/BannerHeading";
-import ContentOutline, {
-    ContentOutlineHeader,
-} from "@/components/features/ContentOutline";
+import ContentOutline, { ContentOutlineHeader, } from "@/components/features/ContentOutline";
 
 import electricalImage from "@assets/images/photos/2025_electrical.jpeg";
 import mechanicalImage from "@assets/images/photos/2025_electrical.jpeg";
-import safetyImage from "@assets/images/photos/2025_safety.jpeg";
 import systemsImage from "@assets/images/photos/2025_electrical.jpeg";
-import programmingImage from "@assets/images/photos/2025_programming.jpeg";
-import outreachImage from "@assets/images/photos/2025_fall_fest.jpeg";
 import robotSupportImage from "@assets/images/photos/2025_electrical.jpeg";
 import compSupportImage from "@assets/images/photos/2025_electrical.jpeg";
 import DMPRImage from "@assets/images/photos/2025_electrical.jpeg";
+import safetyImage from "@assets/images/photos/2025_safety.jpeg";
+import programmingImage from "@assets/images/photos/2025_programming.jpeg";
+import outreachImage from "@assets/images/photos/2025_fall_fest.jpeg";
 
 const ecorHeaders: ContentOutlineHeader[] = [
     { name: "Electrical" },
@@ -64,11 +62,15 @@ function Disciplines() {
                 foreground={
                     <div className="page-header-foreground-container">
                         <h1 className="page-header-title">Disciplines</h1>
-                        <ContentOutline headers={ecorHeaders} label="eCOR" />
+                        <ContentOutline
+                            headers={ecorHeaders}
+                            color="gold"
+                            label="Engineering"
+                        />
                         <ContentOutline
                             headers={ocorHeaders}
                             color="blue"
-                            label="oCOR"
+                            label="Outreach"
                         />
                     </div>
                 }
@@ -82,7 +84,7 @@ function Disciplines() {
                 }
             />
 
-            <BannerHeading background="eCOR">eCOR</BannerHeading>
+            <BannerHeading background="eCOR">Engineering</BannerHeading>
 
             <ContentContainer
                 id="electrical"
@@ -91,22 +93,24 @@ function Disciplines() {
             >
                 <h3>Electrical</h3>
                 <p>
-                    The Electrical Discipline is responsible for designing and
-                    maintaining the layout, wiring, and integration of all
-                    electrical and pneumatic components&mdash;ensuring efficient power
-                    delivery, clean signal flow, and reliable performance
-                    throughout the robot.
+                    The Electrical discipline is responsible for 
+                    designing and maintaining the layout, wiring, 
+                    and integration of all electrical components. 
+                    They ensure efficient power delivery, clean 
+                    signal flow, and reliable performance throughout
+                    the robot.
                 </p>
             </ContentContainer>
 
             <ContentContainer id="mechanical" image={{ src: mechanicalImage }}>
                 <h3>Mechanical</h3>
                 <p>
-                    The Mechanical Discipline is responsible for the backbone of
-                    the robot. From designing and reinforcing its structural
-                    framework, to precisely creating core mechanisms this
-                    discipline lays the foundation for reliable,
-                    high-performance operation
+                    The Mechanical discipline is responsible for the 
+                    physical fabrication of the robot. They ensure 
+                    the robot is structurally sound and that the 
+                    mechanisms are ready to be worked on by other 
+                    disciplines. This discipline lays the foundation 
+                    for reliability and high performance.
                 </p>
             </ContentContainer>
 
@@ -117,22 +121,23 @@ function Disciplines() {
             >
                 <h3>Systems</h3>
                 <p>
-                    The Systems Discipline facilitates the integration of
-                    designs with other disciplines, while fostering
-                    communication about the robot and the engineering process
-                    within the team and other audiences.
+                    The Systems discipline facilitates the CAD design 
+                    of the robot while fostering communication about the 
+                    robot and the engineering process within the team and other 
+                    audiences.
                 </p>
             </ContentContainer>
 
             <ContentContainer id="safety" image={{ src: safetyImage }}>
                 <h3>Safety</h3>
                 <p>
-                    Safety is a unique discipline in that it is independent of
-                    the typical Engineering and Outreach divisions of the team.
-                    Ensure the team's safety and first-aid supplies are in good
-                    condition and are restocked as needed, as well as keeping a
-                    log of accidents and injuries at team meetings and at
-                    competitions.
+                    Safety is a unique discipline in that it is independent 
+                    of the typical Engineering and Outreach divisions of 
+                    the team. The Safety Captain is responsible for organizing
+                    Safety Training in conjunction with the Engineering Coach
+                    and the Executive Committee, ensuring the team’s safety
+                    and first-aid supplies are in good condition and are 
+                    restocked as needed.
                 </p>
             </ContentContainer>
 
@@ -151,9 +156,7 @@ function Disciplines() {
                 </p>
             </ContentContainer>
 
-            <BannerHeading background="oCOR" color="blue">
-                oCOR
-            </BannerHeading>
+            <BannerHeading background="oCOR" color="blue">Outreach</BannerHeading>
 
             <ContentContainer
                 id="outreach"
@@ -162,9 +165,12 @@ function Disciplines() {
             >
                 <h3>Outreach</h3>
                 <p>
-                    The Outreach Event Coordination Discipline oversees the
-                    planning and execution of key community events such as the
-                    FLL Expo, FLL Qualifier, and STEAM Day.
+                    The Outreach Event Coordination discipline creates meaningful 
+                    FIRST experiences for our community by helping plan and run 
+                    events like the FLL Expo, FLL Qualifier, and STEAM Day. 
+                    The Outreach Event Coordinator designs each event to inspire 
+                    young innovators, spark curiosity, and celebrate the values 
+                    of FIRST.
                 </p>
             </ContentContainer>
 
@@ -174,9 +180,9 @@ function Disciplines() {
             >
                 <h3>Robot Support</h3>
                 <p>
-                    The Robot Support Discipline ensures all FIRST requirements
-                    for competing with the robot are met, including the creation
-                    of components that support the drive team.
+                    The Robot Support Discipline ensures all FIRST requirements 
+                    for competing with the robot are met, including supplementary 
+                    materials such as field elements and bumpers.
                 </p>
             </ContentContainer>
 
@@ -187,19 +193,20 @@ function Disciplines() {
             >
                 <h3>Competition Support</h3>
                 <p>
-                    The Competition Support Discipline facilitates strategy
-                    development, as well as the preparation of materials for
-                    competition in order to maintain team image, branding, and
-                    spirit.
+                    Our Competition Support discipline leads all strategic preparation 
+                    and ensures competition materials reflect our team’s image, branding, 
+                    and spirit. Competition Support works to create a consistent, energized 
+                    presence at every FIRST event.
                 </p>
             </ContentContainer>
 
             <ContentContainer id="dmpr" image={{ src: DMPRImage }}>
                 <h3>DMPR (Digital Media & Public Relations)</h3>
                 <p>
-                    The Digital Media & Public Relations Discipline creates and
-                    maintains resources and visual materials related to the
-                    team's image, promotion, and online presence.
+                    The Digital Media & Public Relations discipline shapes our team’s image 
+                    and online presence by creating and managing visuals, promotional materials, 
+                    and digital content. DMPR works to share our story, connect with the community, 
+                    and maintain a strong, consistent team identity, be that online or in person.
                 </p>
             </ContentContainer>
 
@@ -210,10 +217,12 @@ function Disciplines() {
             >
                 <h3>Youth Initiative</h3>
                 <p>
-                    The Youth Initiative/Mentoring Discipline organizes the
-                    sustainment and betterment of the team's FLL program
-                    mentorship, as well as other initiatives which emphasize
-                    Enforcer guidance, like Rockin' Robotics.
+                    The Youth Initiative & Mentoring discipline oversees the development and 
+                    support of the team’s FLL mentorship program and other initiatives that 
+                    emphasize Enforcer guidance, such as Rockin’ Robotics. 
+                    Youth Initiative & Mentoring works to inspire young learners, 
+                    provide meaningful mentorship, and help students grow both in STEM skills 
+                    and confidence.
                 </p>
             </ContentContainer>
         </div>

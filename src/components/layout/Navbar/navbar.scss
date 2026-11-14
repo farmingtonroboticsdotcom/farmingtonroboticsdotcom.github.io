@@ -301,8 +301,21 @@ html.mobile {
     z-index: 9997;
     transition: opacity var(--navbar-transition-time) ease, backdrop-filter var(--navbar-transition-time) ease;
     opacity: 0;
-    backdrop-filter: blur(8px) brightness(70%);
+    backdrop-filter: blur(4px) brightness(var(--brightness));
     pointer-events: none;
+
+    --brightness: 90%;
+
+    &.extended {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    &.site-search {
+        opacity: 1;
+        --brightness: 80%;
+        pointer-events: all;
+    }
 }
 
 nav.navbar-mobile~#navbar-curtain {
@@ -328,17 +341,6 @@ nav.extended {
         pointer-events: all !important;
         z-index: 99999999;
     }
-}
-
-#navbar-curtain.extended {
-    opacity: 1;
-    pointer-events: all;
-}
-
-#navbar-curtain.site-search {
-    opacity: 1;
-    backdrop-filter: blur(4px) brightness(.25) !important;
-    pointer-events: all;
 }
 
 #topbar-center.navbar-mobile {
@@ -397,17 +399,18 @@ nav.extended {
 }
 
 // HAMBURGER!!!
+.hamburger-svg {
+    .line {
+        transition: transform 0.3s cubic-bezier(.4, 1.7, .6, 1);
+    }
 
-.hamburger-svg .line {
-    transition: transform 0.3s cubic-bezier(.4, 1.7, .6, 1);
-}
+    &.active .top {
+        transform: rotate(45deg) translateY(2px);
+    }
 
-.hamburger-svg.active .top {
-    transform: rotate(45deg) translateY(2px);
-}
-
-.hamburger-svg.active .bottom {
-    transform: rotate(-45deg) translateY(-2px);
+    &.active .bottom {
+        transform: rotate(-45deg) translateY(-2px);
+    }
 }
 
 // search
@@ -482,8 +485,48 @@ nav.extended {
         border-left: none;
         border-right: none;
     }
+
+    &.open {
+        opacity: 1;
+    }
 }
 
-#navbar-search-container.open {
-    opacity: 1;
+@media (prefers-color-scheme: light) {
+    nav {
+        background-color: var(--navbar-background);
+        color: var(--dark-TEXT) !important;
+    }
+
+    .topbar-hamburger {
+        filter: invert(0%);
+    }
+
+    nav.navbar-mobile #topbar {
+        backdrop-filter: blur(25px) !important;
+    }
+
+    nav:not(.navbar-mobile) {
+        backdrop-filter: blur(25px) !important;
+    }
+
+    #navbar-search-container {
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.4);
+
+        input {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        .navbar-search-suggestion {
+            border-top: 1px solid rgba(255, 255, 255, 0.55);
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.15);
+            }
+
+            &.highlighted {
+                background: rgba(255, 255, 255, 0.3);
+            }
+        }
+    }
 }

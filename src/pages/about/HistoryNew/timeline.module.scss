@@ -1,0 +1,48 @@
+.timeline {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    padding: 1rem 2rem;
+    overflow: hidden;
+
+    .year {
+        position: relative;
+        flex: 1 1 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 1px solid rgba(87, 87, 87, 0.18);
+        color: #2f2f2f;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+
+        &:first-child {
+            border-left: 0;
+        }
+    }
+
+    .yearLabel {
+        position: relative;
+        z-index: 1;
+    }
+
+    .playhead {
+        position: absolute;
+        top: 0.35rem;
+        bottom: 0.35rem;
+        width: 0;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    .playheadLine {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -1px;
+        width: 2px;
+        border-radius: 999px;
+        background: var(--BLUE_GRADIENT);
+    }
+}

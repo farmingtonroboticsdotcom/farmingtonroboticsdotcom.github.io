@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './photo-gallery.scss';
+import importImage from '@/utils/importImage';
 
 export type Photo = {
     path: string;
@@ -13,9 +14,6 @@ type PhotoGalleryProps = {
     photos: Photo[];
 };
 
-// Dynamically import all images from the assets folder
-const images = import.meta.glob('@assets/**/*.{svg,jpg,png,jpeg}');
-
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
     const [resolvedImages, setResolvedImages] = useState<Record<string, string>>({});
     const [numColumns, setNumColumns] = useState(0);
@@ -27,13 +25,9 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
 
             await Promise.all(
                 photos.map(async (photo) => {
-                    try {
-                        const module = await images["/src/assets/" + photo.path]();
-                        newResolvedImages[photo.path] = ((module as { default: string }).default);
-                    } catch (error) {
-                        console.log("/src/assets/" + photo.path)
-                        console.error('Error importing back image:', error);
-                    }
+                    await importImage("/src/assets/" + photo.path, (src) => {
+                        newResolvedImages[photo.path] = src;
+                    });
                 })
             );
 

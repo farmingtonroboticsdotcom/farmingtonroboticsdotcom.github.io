@@ -9,7 +9,7 @@
     font-weight: 500;
     padding: 8px 16px;
     transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease, filter 0.2s ease;
-    filter: brightness(90%);
+    filter: brightness(97%);
     transform: none;
     color: var(--blue-2);
     margin-bottom: .5rem;
@@ -32,6 +32,6 @@
 
     &:active {
         transform: scale(0.98) rotate(-0.4deg);
-        filter: brightness(80%);
+        filter: brightness(93%);
     }
 }

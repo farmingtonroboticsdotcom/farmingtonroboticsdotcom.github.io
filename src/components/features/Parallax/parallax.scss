@@ -4,6 +4,7 @@
     width: 100%;
     overflow: hidden;
     margin-bottom: 3rem;
+    color: var(--dark-TEXT);
     
     .parallax-background {
         // any opacity, transform, or filter properties will be overridden by the script
@@ -39,7 +40,7 @@
             font-weight: 700;
             margin: 0;
             padding: 0 2em;
-            text-shadow: 0 0 16px light-dark(#ffffffaa, #000);
+            text-shadow: 0 0 16px #000;
         }
     }
 }

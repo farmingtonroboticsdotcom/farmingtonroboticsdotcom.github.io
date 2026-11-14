@@ -17,7 +17,7 @@ const pageRoutes: PageRoute[] = [
         path: "/about",
         children: [
             {
-                title: "Contact Form",
+                title: "Contact Us",
                 path: "https://forms.gle/J3bxBJuJEyo4gSWh6",
                 external: true,
             },
@@ -151,7 +151,7 @@ export function findRouteTitleByPath(
     needle: string,
     haystack?: PageRoute[]
 ): string {
-    let routes = haystack ?? pageRoutes;
+    const routes = haystack ?? pageRoutes;
 
     for (const route of routes) {
         if (route.path == needle) {

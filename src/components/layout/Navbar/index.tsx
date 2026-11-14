@@ -1,13 +1,6 @@
 //imports css + assets + routing
 import { NavLink, useNavigate } from "react-router-dom";
-import {
-    useEffect,
-    useRef,
-    useState,
-    useMemo,
-    forwardRef,
-    useCallback,
-} from "react";
+import { forwardRef, useCallback, useEffect, useMemo, useRef, useState, } from "react";
 
 import "./navbar.scss";
 import navLogo from "@assets/images/branding/branding_icon.svg";

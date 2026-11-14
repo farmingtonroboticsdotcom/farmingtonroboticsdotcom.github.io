@@ -11,9 +11,14 @@ export type ExpandableProps = {
     initialState: ReactNode;
     expandedState: ReactNode;
     options: ExpandableOptions;
+    isOpen?:boolean;
+    onClose?: () => void;
 }
 
 export default function Expandable(props: ExpandableProps) {
+
+    const {isOpen, onClose} = props;
+
     const menuRef = useRef<HTMLDivElement>(null);
     const initialRef = useRef<HTMLDivElement>(null);
     const expandedRef = useRef<HTMLDivElement>(null);
@@ -44,7 +49,7 @@ export default function Expandable(props: ExpandableProps) {
             }
 
         }
-
+        
         window.addEventListener('keydown', handleEscape);
         document.addEventListener('click', handleClickOutside);
 
@@ -101,9 +106,20 @@ export default function Expandable(props: ExpandableProps) {
         setElementOpen(true);
     }, [menuRef, placeholderRef, initialRef, canOpen, elementOpen]);
 
+    useEffect(() => {
+
+        if (isOpen && canOpen) {
+            onExpand();
+        }
+    }, [isOpen, canOpen, onExpand])
+
     const onCollapse = useCallback(() => {
         if (!menuRef.current || !placeholderRef.current || !initialRef.current) return;
         if (canOpen) return;
+
+        if (onClose){
+            onClose();
+        }
 
         const menu = menuRef.current;
         const placeholder = placeholderRef.current;

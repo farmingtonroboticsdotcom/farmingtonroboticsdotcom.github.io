@@ -8,9 +8,9 @@ import ContentContainer from "@/components/features/ContentContainer";
 import "./events-page.scss";
 
 // import eventsHeaderImage from "@assets/images/photos/256x256placeholder.jpg"
-
 // import Countdown, { CountdownProps } from "@components/features/Countdown";
 import BannerHeading from "@/components/features/BannerHeading";
+import TeamCalendar from "@components/sections/TeamCalendar.tsx";
 
 // const events: CountdownProps[] = [
 //     //events with date
@@ -31,14 +31,6 @@ import BannerHeading from "@/components/features/BannerHeading";
 export default function Events() {
     return (
         <div id="events-page">
-            <div className="flex w-full">
-                <iframe
-                    className="calendar-main"
-                    title="calendar"
-                    src="https://calendar.google.com/calendar/embed?src=8606120d12dbfe86c751999d07f98f01316f43ccb235041e653e14b19df5e482%40group.calendar.google.com&ctz=America%2FNew_York"
-                />
-            </div>
-            
             <BannerHeading background="EVENTS" color="blue">
                 Events
             </BannerHeading>
@@ -76,6 +68,8 @@ export default function Events() {
                     </>))
                 }
             </div> */}
+
+            <TeamCalendar/>
         </div>
     );
 }

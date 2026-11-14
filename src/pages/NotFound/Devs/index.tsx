@@ -16,7 +16,7 @@ export default function Devs() {
         <>
             <div className="devs-desc-page">
 
-                <h1 className="header">Meet the Developers!</h1>
+                <h1 className="header ">Meet the Developers!</h1>
 
                 <ContentContainer
                     id="cascaade"
@@ -46,15 +46,6 @@ export default function Devs() {
                         of what they want on the new website.
                     </p>
                 </ContentContainer>
-                <ContentContainer id="gpt" >
-                    <h1 className="name">ChatGPT</h1>
-                    <h2 className="dev-desc">
-                        Debugger & Developer
-                    </h2>
-                    <p className="dev-paragraph">
-                        provided crucial assistance
-                    </p>
-                </ContentContainer>
                 <ContentContainer id="lwa-nerd" reverse={true}>
                     <h1 className="name">LWA-Nerd</h1>
                     <h2 className="dev-desc">
@@ -76,15 +67,36 @@ export default function Devs() {
                         between the WebDev team and the rest of FRC 178.
                     </p>
                 </ContentContainer>
-                <ContentContainer id="gpt" >
-                    <h1 className="name">ChatGPT</h1>
+                    <ContentContainer id="gpt" >
+                    <h1 className="name">Codex</h1>
                     <h2 className="dev-desc">
-                        Debugger & Developer
+                        Coding Agent
                     </h2>
                     <p className="dev-paragraph">
                         provided crucial assistance
                     </p>
                 </ContentContainer>
+                    <ContentContainer id="gpt" >
+                    <h1 className="name">Github Copilot</h1>
+                    <h2 className="dev-desc">
+                        Coding Agent
+                    </h2>
+                    <p className="dev-paragraph">
+                        provided crucial assistance
+                    </p>
+                </ContentContainer>
+                    <ContentContainer id="gpt" />
+                    <h1 className="name">Grok Build</h1>
+                    <h2 className="dev-desc">
+                        Coding Agent
+                    </h2>
+                    <p className="dev-paragraph">
+                        "In order to understand the universe, we must explore the universe. And that's the motivation, to accelerate 
+                        humanity's future in understanding the universe and extending the light of conciousness to the stars.
+                        "
+                    </p>
+             
+               
             </div>
         </>
     )

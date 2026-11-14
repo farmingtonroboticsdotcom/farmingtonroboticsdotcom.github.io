@@ -33,11 +33,11 @@ export default function Parallax({ foreground, background, className, options = 
         if (!backgroundRef.current) return;
         // Adjust these values as needed
 
-        const maxOpacity = options.maxOpacity ?? 0.6;
+        const maxOpacity = options.maxOpacity ?? 1;
         const maxTransform = options.maxTransform ?? 60;
         const maxBlur = options.maxBlur ?? 10;
         const defaultBrightness = options.defaultBrightness ?? 0.8;
-        const maxSaturation = options.maxSaturation ?? 300; // is a %
+        const maxSaturation = options.maxSaturation ?? 200; // is a %
 
         const easedProgress = 1 - Math.pow(1 - progress, 3); // https://easings.net/#easeOutQuint
 

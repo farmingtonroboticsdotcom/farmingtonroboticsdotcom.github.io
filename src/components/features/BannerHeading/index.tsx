@@ -10,8 +10,11 @@ export type BannerHeadingProps = {
 
 export default function BannerHeading(props: BannerHeadingProps) {
     return (
-        <h2 className={`banner-heading banner-heading-${props.color || "gold"} ${props.background ? "banner-heading-has-background" : ""}`}
+        <h2
+            className={`banner-heading banner-heading-${props.color || "gold"} ${props.background ? "banner-heading-has-background" : ""}`}
             style={props.background ? { '--banner-heading-before-content': `"${props.background}"` } as React.CSSProperties : {}}
-        ><span>{props.children}</span></h2>
+        >
+            <span>{props.children}</span>
+        </h2>
     )
 }

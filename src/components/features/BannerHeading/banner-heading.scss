@@ -26,9 +26,15 @@
     transform: translate(-50%, -50%);
     font-size: 600%;
     font-weight: 900;
-    opacity: 0.2;
-    color: var(--GOLD);
+    opacity: 0.4;
+    color: var(--GOLD_PASSTHROUGH_OUTLINE);
     z-index: 1;
+}
+
+@media (prefers-color-scheme: light) {
+    .banner-heading-gold.banner-heading-has-background::before {
+        opacity: 0.6;
+    }
 }
 
 .banner-heading-blue.banner-heading-has-background::before {
@@ -39,7 +45,7 @@
     transform: translate(-50%, -50%);
     font-size: 600%;
     font-weight: 900;
-    opacity: 0.2;
-    color: var(--BLUE);
+    opacity: 0.4;
+    color: var(--BLUE_PASSTHROUGH_OUTLINE);
     z-index: 1;
 }
