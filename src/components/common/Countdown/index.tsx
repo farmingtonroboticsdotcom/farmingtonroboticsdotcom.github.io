@@ -12,7 +12,7 @@ type CountdownProps = {
     id?: string;
 };
 
-export default function Countdown({targetEpoch, eventName, knowDate=true, label, className, id}: CountdownProps) {
+export default function Countdown({targetEpoch, eventName, knowDate=true}: CountdownProps) {
     //main function
     const [time, setTimeText] = useState("00d 00h 00m 00s"); //used to change time
     const [hidden, setHidden] = useState(false);
