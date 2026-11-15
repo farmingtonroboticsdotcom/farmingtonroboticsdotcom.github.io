@@ -1,0 +1,23 @@
+.noContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    // .title {
+    //     font-size: 200px;
+    // }
+
+    .img {
+        border-radius: 1rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .note {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+}

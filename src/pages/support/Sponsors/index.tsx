@@ -69,7 +69,7 @@ function Sponsors() {
 
             <div className={styles.content}>
                 <div className={styles.sponsorHeader + " " + styles.platinum}>
-                    <h1>Platinum</h1>
+                    <h1 className="">Platinum</h1>
                 </div>
                 <div className={styles.list}>
                     {platinumSponsors.map((v) => (

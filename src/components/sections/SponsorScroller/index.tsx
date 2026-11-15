@@ -1,7 +1,22 @@
-import Sponsor, { SponsorProps } from "@/components/features/Sponsor";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import styles from "./SponsorScroller.module.scss";
+import { SponsorProps } from "@/components/features/Sponsor";
+import importImage from "@/utils/importImage";
+
+function TrackSponsor(props: SponsorProps) {
+    const [image, setImageSrc] = useState("");
+    
+    useEffect(() => {
+        importImage(`/src/assets/images/sponsors/sponsor_${props.id}.svg`, setImageSrc);
+    }, [props.id]);
+
+    return (
+        <div className={styles.sponsor}>
+            <img className={styles.img} src={image} alt={props.name} />
+        </div>
+    );
+}
 
 // --- Sponsor Data ---
 const platSponsors: SponsorProps[] = [
@@ -38,7 +53,7 @@ export default function SponsorScroller() {
     const rAFid = useRef<number | null>(null);
 
     const friction = 0.05;
-    const speed = 0.08;
+    const speed = 0.03;
 
     useEffect(() => {
         let mounted = true;
@@ -79,7 +94,7 @@ export default function SponsorScroller() {
             >
                 <div className={styles.track} ref={scrollRef}>
                     {[...platSponsors, ...platSponsors].map((sponsor, i) => (
-                        <Sponsor
+                        <TrackSponsor
                             {...sponsor}
                             className={styles.sponsor}
                             key={`${sponsor.id}-${i}`}

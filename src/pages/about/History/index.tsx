@@ -1,6 +1,7 @@
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import { useSearchParams } from "react-router-dom";
 
 import { mobileScreen } from "@/utils/general";
 
@@ -13,10 +14,9 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineOppositeContent, {
-    timelineOppositeContentClasses,
-} from "@mui/lab/TimelineOppositeContent";
+import TimelineOppositeContent, { timelineOppositeContentClasses, } from "@mui/lab/TimelineOppositeContent";
 
+import rebuiltImage from "@assets/images/photos/2026_team_photo.jpg";
 import reefscapeImage from "@assets/images/photos/2025_team_photo.jpeg";
 import crescendoImage from "@assets/images/photos/2024_team_photo.jpeg";
 import chargedUpImage from "@assets/images/photos/2023_team_photo.jpeg";
@@ -28,8 +28,8 @@ import powerUpImage from "@assets/images/photos/2018_team_photo.jpeg";
 import steamworksImage from "@assets/images/photos/2017_team_photo.jpeg"; // UPDATE?
 import strongholdImage from "@assets/images/photos/2017_team_photo.jpeg"; // NEED
 import recycleRushImage from "@assets/images/photos/2017_team_photo.jpeg"; // NEED
-import aerialAssistImage from "@assets/images/photos/2017_team_photo.jpeg"; // NEED
-
+import aerialAssistImage from "@assets/images/photos/2014_team_photo.jpg"; // NEED
+import linkIcon from "@assets/images/icons/icons_link.svg";
 // gsap scroll animation
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,15 +38,25 @@ type YearScribe = {
     game: string;
     robot_name: string;
     desc: string;
+    extended_desc: string;
     image: string;
 };
 
 const yeardescs: YearScribe[] = [
     {
+        num:2026,
+        game: "Rebuilt",
+        robot_name: "Cerberus",
+        desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "this is a\ntest for a multiline desc",
+        image: rebuiltImage,
+    },
+    {
         num: 2025,
         game: "Reefscape",
         robot_name: "The Quacken",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: reefscapeImage,
     },
     {
@@ -54,6 +64,7 @@ const yeardescs: YearScribe[] = [
         game: "Crescendo",
         robot_name: "Arpeggio",
         desc: "Arpeggio used wheels both as an intake to take in discs and to shoot them into the higher scoring area known as the “speaker”, although it was originally prototyped to use a ground intake.  There are additional wheels in its arm to help it score into the lower points scoring areas known as the “amp”. The shooting arm of the robot can rotate on a single axis, this is what allows for easy scoring in both the amp and the speaker. This was also the first year the team used swerve drive.",
+        extended_desc: "",
         image: crescendoImage,
     },
     {
@@ -61,6 +72,7 @@ const yeardescs: YearScribe[] = [
         game: "Charged Up",
         robot_name: "Bender",
         desc: "Bender is named after the Futurama character of the same name, as they are both made out of metal and our Bender has a hidden face! Bender has an arm that has joints at two places, allowing it to grab cones and cube game pieces from far distances and varying angles. It also has rubber parts on the inside of its claw that allow it to securely grab onto the pieces.",
+        extended_desc: "",
         image: chargedUpImage,
     },
     {
@@ -68,6 +80,7 @@ const yeardescs: YearScribe[] = [
         game: "Rapid React",
         robot_name: "Hungry Hungry Hippo (Gregory)",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: rapidReactImage,
     },
     {
@@ -75,6 +88,7 @@ const yeardescs: YearScribe[] = [
         game: "Game Changers",
         robot_name: "N/A",
         desc: "&bull; Virtual Game\nWe don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: gameChangersImage,
     },
     {
@@ -82,6 +96,7 @@ const yeardescs: YearScribe[] = [
         game: "Infinite Recharge",
         robot_name: "BB-178 or Q*Bert (TBA)",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: infiniteRechargeImage,
     },
     {
@@ -89,6 +104,7 @@ const yeardescs: YearScribe[] = [
         game: "Deep Space",
         robot_name: "Luna",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: deepSpaceImage,
     },
     {
@@ -96,6 +112,7 @@ const yeardescs: YearScribe[] = [
         game: "Power Up",
         robot_name: "Q*Bert (TBA)",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: powerUpImage,
     },
     {
@@ -103,6 +120,7 @@ const yeardescs: YearScribe[] = [
         game: "STEAMworks",
         robot_name: "Gearzmo (TBA)",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: steamworksImage,
     },
     {
@@ -110,6 +128,7 @@ const yeardescs: YearScribe[] = [
         game: "Stronghold",
         robot_name: "BB-178",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: strongholdImage,
     },
     {
@@ -117,13 +136,15 @@ const yeardescs: YearScribe[] = [
         game: "Recycle Rush",
         robot_name: "BB-178",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: recycleRushImage,
     },
     {
         num: 2014,
         game: "Aerial Assist",
-        robot_name: "BB-178",
-        desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        robot_name: "Captain Falcon",
+        desc: "Captain Falcon had an intake design that forced the balls into a circular landing zone just above the base of the robot. This circular base is able to swivel from a slanted position to a flat position, allowing the robot to intake from the ground or from the human player. Captain Falcon’s shooting system prioritized shooting in the high goal simply because it gave more points. A pneumatic mechanism would shoot any balls lying in the base into the high goal.",
+        extended_desc: `<b>2013-2014</b>\n\n<a href=\"https://www.thebluealliance.com/team/178/2014\" class=\"inline-flex items-center gap-1\"><img src=\"${linkIcon}\" alt=\"link_icon\" class=\"w-4 h-4\" />Events:</a>\nGroton District Event (#15)\n> Won Gracious Professionalism Award\nSouthington District Event (#7)\nHartford District Event (#24)\n> Won Engineering Inspiration Award\nNew England FRC Region Championship (#39)\n \n<a href=\"https://drive.google.com/file/d/1prjhP-e8uj9ua7h0SqVVukfsEuui19NP/view\" class=\"inline-flex items-center gap-1\"><img src=\"${linkIcon}\" alt=\"link_icon\" class=\"w-4 h-4\"/>Team Roster:</a>\n\nCoaches:\nTim Barron - Co-Head Coach\nMichele Hall - Co-Head Coach\nCharles Forstbaur - Engineering Coach\nCharlie Bald - Lead Engineering Coach\nTim Walsh - Assistant Coach\nEarl Procko - Assistant Coach\n\nOfficers:\nPatrick Demkowicz - Captain\nMark Sims - Engineering Representative\nBrandon Cheng - Director of Community Outreach\nLauren Schneider - Secretary\n\nOther Links:\n\n<a href=\"https://www.youtube.com/watch?v=HXOfdnIrBOI&t=117s\" class=\"inline-flex items-center gap-1\"><img src=\"${linkIcon}\" alt=\"link_icon\" class=\"w-4 h-4\" />Game Playing Video</a>\n<a href=\"https://www.youtube.com/watch?v=f5zWzICG5to\" class=\"inline-flex items-center gap-1\"><img src=\"${linkIcon}\" alt=\"link_icon\" class=\"w-4 h-4\" />Game Reveal Animation</a>\n<a href=\"https://www.youtube.com/watch?v=A8aGyy8lC3Y\" class=\"inline-flex items-center gap-1\"><img src=\"${linkIcon}\" alt=\"link_icon\" class=\"w-4 h-4\" />Week Update #1</a>\n<a href=\"https://www.youtube.com/watch?v=n36wQ-uxaBM\" class=\"inline-flex items-center gap-1\"><img src=\"${linkIcon}\" alt=\"link_icon\" class=\"w-4 h-4\" />TedYouth</a>\n<a href=\"https://www.youtube.com/watch?v=nLT2YwLd2v8\" class=\"inline-flex items-center gap-1\"><img src=\"${linkIcon}\" alt=\"link_icon\" class=\"w-4 h-4\" />Safety Animation</a>\n<a href=\"https://www.youtube.com/watch?v=Y9SjSYFWhPw\" class=\"inline-flex items-center gap-1\"><img src=\"${linkIcon}\" alt=\"link_icon\" class=\"w-4 h-4\" />Build Season Animation</a>`,
         image: aerialAssistImage,
     },
     {
@@ -131,6 +152,7 @@ const yeardescs: YearScribe[] = [
         game: "Ultimate Ascent",
         robot_name: "BB-178",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: infiniteRechargeImage,
     },
     {
@@ -138,6 +160,7 @@ const yeardescs: YearScribe[] = [
         game: "Rebound Rumble",
         robot_name: "BB-178",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: infiniteRechargeImage,
     },
     {
@@ -145,6 +168,7 @@ const yeardescs: YearScribe[] = [
         game: "Logo Motion",
         robot_name: "BB-178",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: infiniteRechargeImage,
     },
     {
@@ -152,6 +176,7 @@ const yeardescs: YearScribe[] = [
         game: "Breakaway",
         robot_name: "BB-178",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: infiniteRechargeImage,
     },
     {
@@ -159,6 +184,7 @@ const yeardescs: YearScribe[] = [
         game: "Lunacy",
         robot_name: "BB-178",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: infiniteRechargeImage,
     },
     {
@@ -166,6 +192,7 @@ const yeardescs: YearScribe[] = [
         game: "FIRST Overdrive",
         robot_name: "BB-178",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: infiniteRechargeImage,
     },
     {
@@ -173,12 +200,35 @@ const yeardescs: YearScribe[] = [
         game: "Rack 'n Roll",
         robot_name: "BB-178",
         desc: "We don't have a robot description yet! If you would like to write one, please contact one of the website developers.",
+        extended_desc: "",
         image: infiniteRechargeImage,
     },
 ];
 
 export default function History() {
     const timelineRef = useRef<HTMLDivElement>(null);
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const urlYear = searchParams.get("year");
+
+    const pleaseStopDoingTheURLThingPls = () => {
+        setTimeout(() => {
+            searchParams.delete("year");
+            setSearchParams(searchParams, { replace: true });
+        }, 100);
+    };
+
+    useEffect(() => {
+        if (urlYear) {
+            const tElement = document.getElementById(`timeline-year-${urlYear}`)
+
+            if (tElement) {
+                setTimeout(() => {
+                    tElement?.scrollIntoView({behavior: "smooth", block: "center"})
+                }, 200);
+            }
+        }
+    }, [urlYear]);
 
     const [isMobile, setIsMobile] = useState(mobileScreen());
 
@@ -270,7 +320,7 @@ export default function History() {
                     }
                 );
             });
-        });
+        }, timelineRef);
 
         return () => lineCtx.revert();
     }, []);
@@ -314,9 +364,16 @@ export default function History() {
                         .replace(/\t/g, "&nbsp;&nbsp;&nbsp;&nbsp;")
                         .split(/\n/g); // replace tabs with spaces, split by newline
 
+                    const originalExtendContent = scribe.extended_desc || `This is where we will have a more detailed explanation about things we did in ${scribe.num}`;
+                    const extendedContent = originalExtendContent
+                        .replace(/\t/g, "&nbsp;&nbsp;&nbsp;&nbsp;")
+                        .split(/\n/g);
+
+                        const directYear = urlYear ? scribe.num === Number(urlYear) : false;
                     return (
                         <TimelineItem
                             key={"y" + scribe.num}
+                            id={`timeline-year-${scribe.num}`}
                             className={
                                 positionClass + (isMobile ? " mobile-opt" : "")
                             }
@@ -327,11 +384,14 @@ export default function History() {
                                         src={scribe.image}
                                         alt=""
                                         className="timeline-image"
+                                        loading="lazy"
                                     />
                                 )}
                             </TimelineOppositeContent>
                             <TimelineSeparator className="seperation">
                                 <Expandable
+                                    isOpen={directYear}
+                                    onClose={pleaseStopDoingTheURLThingPls}
                                     initialState={
                                         <>
                                             <p
@@ -351,9 +411,17 @@ export default function History() {
                                     }
                                     expandedState={
                                         <>
-                                            This is where we will have a more
-                                            detailed explanation about things we
-                                            did in {scribe.num}
+                                            {
+                                                extendedContent.map(
+                                    (
+                                        txt // new p tag for each new line
+                                    ) => (
+                                        <p
+                                            dangerouslySetInnerHTML={{
+                                                __html: txt,
+                                            }}
+                                        ></p>
+                                    ))}
                                         </>
                                     }
                                     options={{

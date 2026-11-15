@@ -1,6 +1,6 @@
 // React Imports
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 // Global Page Effect Imports
 import NavBar from "@components/layout/Navbar";
@@ -32,11 +32,10 @@ import Sponsors from "@pages/support/Sponsors";
 import Raffle from "@pages/support/Raffle";
 
 // Other Imports
-import Hyperlinks, {
-    Hyperlink,
-} from "@/components/sections/Hyperlinks/Hyperlinks";
+import Hyperlinks, { Hyperlink, } from "@/components/sections/Hyperlinks/Hyperlinks";
 import { mobileScreen } from "./utils/general";
 import General from "./components/layout/General";
+import HistoryNew from "@pages/about/HistoryNew/HistoryNew.tsx";
 
 // Lists of links to display on pages without content
 const supportHyperlinks: Hyperlink[] = [
@@ -116,6 +115,7 @@ export default function App() {
 
                 <Route path="/not-found/devs" element={<Devs />} />
                 <Route path="/not-found/demos" element={<StyleDemos />} />
+                <Route path="/not-found/demos/new-history-mockup" element={<HistoryNew />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Activate />

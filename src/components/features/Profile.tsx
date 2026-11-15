@@ -17,6 +17,7 @@ export default function Coach(props: ProfileProps) {
     const { name, id, role, desc, join } = props;
 
     // const [imageSrc, setImageSrc] = useState("");
+    const imageSrc = "";
 
     // useEffect(() => {
     //     async function importImage() {
@@ -48,7 +49,7 @@ export default function Coach(props: ProfileProps) {
             expandedState={
                 <>
                     <ContentContainer
-                        // {...(imageSrc ? { image: { src: imageSrc } } : {})}
+                        {...(imageSrc ? { image: { src: imageSrc } } : {})}
                     >
                         <h3>{name}</h3>
                         <p>

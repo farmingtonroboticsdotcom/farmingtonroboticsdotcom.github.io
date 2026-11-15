@@ -1,17 +1,30 @@
 #not-found-page {
-    padding-bottom: 21vh;
-    #header{
-        text-align: center;
+    height: calc(100vh - var(--navbar-height));
+    box-sizing: border-box;
+    padding-bottom: calc(2 * var(--navbar-height));
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .button-no-top-margin {
+        margin-top: 2rem;
+        width: 40%;
     }
 
-    #notfound {
-        padding-top: 21vh;
-        font-weight: bold;
-        font-size: 100px;
-    }
+    // #header{
+    //     text-align: center;
+    // }
 
-    #notfound-desc {
-        font-size: 30px;
-        padding-bottom: 21vh;
-    }    
+    // #notfound {
+    //     padding-top: 21vh;
+    //     font-weight: bold;
+    //     font-size: 100px;
+    // }
+
+    // #notfound-desc {
+    //     font-size: 30px;
+    //     padding-bottom: 21vh;
+    // }    
 }

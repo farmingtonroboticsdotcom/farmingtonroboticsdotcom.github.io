@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import "./common.scss"; // import the css file for this component
-
-const images = import.meta.glob("@assets/images/**/*.(svg|jpg|png|jpeg)");
+import importImage from "@/utils/importImage";
 
 type CardProps = {
     id?: string; // id of the card
@@ -36,32 +35,8 @@ export default function Card(props: CardProps) {
     const [backImageSrc, setBackImageSrc] = useState("");
 
     useEffect(() => {
-        async function importImage(back = false) {
-            if (back) {
-                try {
-                    const module = await images[
-                        "/src/assets/images/" + (backImage || image)
-                    ]();
-                    setBackImageSrc((module as { default: string }).default);
-                } catch (error) {
-                    console.log("/src/assets/images/" + (backImage || image));
-                    console.error("Error importing back image:", error);
-                }
-            } else {
-                try {
-                    const module = await images[
-                        "/src/assets/images/" + image
-                    ]();
-                    setFrontImageSrc((module as { default: string }).default);
-                } catch (error) {
-                    console.log("/src/assets/images/" + (backImage || image));
-                    console.error("Error importing front image:", error);
-                }
-            }
-        }
-
-        importImage();
-        importImage(true);
+            importImage("/src/assets/images/" + image, setFrontImageSrc);
+            importImage("/src/assets/images/" + backImage, setBackImageSrc);
     }, [image, backImage]);
 
     //What the user sees when component is used

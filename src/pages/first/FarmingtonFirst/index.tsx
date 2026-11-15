@@ -3,9 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import "./farmington-first.scss";
 
-import ContentOutline, {
-    ContentOutlineHeader,
-} from "@/components/features/ContentOutline";
+import ContentOutline, { ContentOutlineHeader, } from "@/components/features/ContentOutline";
 import TeamCard, { TeamCardProps } from "@/components/features/TeamCard";
 import ContentContainer from "@/components/features/ContentContainer";
 import BannerHeading from "@/components/features/BannerHeading";

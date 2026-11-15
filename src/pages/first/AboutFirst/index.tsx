@@ -3,9 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 
 import "./first.scss";
 
-import ContentOutline, {
-    ContentOutlineHeader,
-} from "@components/features/ContentOutline";
+import ContentOutline, { ContentOutlineHeader, } from "@components/features/ContentOutline";
 import ContentContainer from "@/components/features/ContentContainer";
 import BannerHeading from "@/components/features/BannerHeading";
 import Parallax from "@components/features/Parallax";

@@ -1,7 +1,7 @@
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
-import path from "path"
+import path from "node:path"
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -26,22 +26,7 @@ export default defineConfig({
        allowedHosts: [
         "fhs2466-01",
         "fhs2466-02",
-        "fhs2466-03",
-        "fhs2466-04",
-        "fhs2466-05",
-        "fhs2466-06",
-        "fhs2466-07",
-        "fhs2466-08",
-        "fhs2466-09",
-        "fhs2466-10",
-        "fhs2466-11",
-        "fhs2466-12",
-        "fhs2466-13",
-        "fhs2466-14",
-        "fhs2466-15",
-        "fhs2466-16",
-        "fhs2466-17",
-        "fhs2466-18"
+        "fhs2466-03"
        ]
     },
 })

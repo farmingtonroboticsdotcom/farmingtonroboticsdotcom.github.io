@@ -1,20 +1,21 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./Countdown.module.scss";
 
 type CountdownProps = {
     //takes number as input
     targetEpoch: number;
+    eventName?: string;
+    knowDate?: boolean;
     label?: string;
     className?: string;
     id?: string;
 };
 
-export default function Countdown(props: CountdownProps) {
+export default function Countdown({targetEpoch, eventName, knowDate=true}: CountdownProps) {
     //main function
-    const [time, setTime] = useState("00d 00h 00m 00s"); //used to change time
+    const [time, setTimeText] = useState("00d 00h 00m 00s"); //used to change time
     const [hidden, setHidden] = useState(false);
-    const { targetEpoch } = props;
     const targetDate = new Date(targetEpoch);
     const formatDate = targetDate.toLocaleDateString("en-US", {
         year: "numeric",
@@ -30,10 +31,11 @@ export default function Countdown(props: CountdownProps) {
             const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
             const minutes = Math.floor((difference / 1000 / 60) % 60);
             const seconds = Math.floor((difference / 1000) % 60);
-            if (seconds < 0) {
+            if (difference <= 0) {
                 setHidden(true);
+                return;
             }
-            setTime(
+            setTimeText(
                 `${days.toString().padStart(2, "0")}d  ${hours
                     .toString()
                     .padStart(2, "0")}h  ${minutes
@@ -50,17 +52,16 @@ export default function Countdown(props: CountdownProps) {
         return () => clearInterval(intervalId);
     }, []);
 
-    if (hidden) {
-        return <></>;
-    }
 
     return (
         //What the user sees when component is used
         <div className={styles.container}>
             <span className={styles.header}>
-                {props.label ?? `Time remaining until ${formatDate}`}
+                {eventName ?? `Time remaining until ${formatDate}`}
             </span>
-            <span className={styles.timer}>{time}</span>
+            <span className={styles.timer}>
+                {hidden ? "Event has started!" : !knowDate ? "Date not provided yet" : time}
+            </span>
         </div>
     );
 }

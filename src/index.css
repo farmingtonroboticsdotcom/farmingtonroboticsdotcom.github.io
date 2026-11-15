@@ -8,13 +8,13 @@
     --dark-TEXT: hsl(0, 0%, 90%);
     --dark-BACKGROUND: hsl(0, 0%, 7%);
     --dark-BACKGROUND_PASSTHROUGH: hsla(0, 0%, 53%, 0.3);
-    --dark-BACKGROUND_PASSTHROUGH_OUTLINE: hsla(0, 0%, 100%, 1);
+    --dark-BACKGROUND_PASSTHROUGH_OUTLINE: hsla(0, 0%, 100%, 0.6);
     --dark-MODAL_BACKGROUND: hsl(0, 0%, 10%);
     --dark-MODAL_OUTLINE: hsl(0, 0%, 15%);
     --dark-GOLD_PASSTHROUGH: hsla(49, 100%, 65%, 0.4);
     --dark-BLUE_PASSTHROUGH: hsla(222, 38%, 43%, 0.4);
-    --dark-GOLD_PASSTHROUGH_OUTLINE: rgba(255, 208, 0, 0.6);
-    --dark-BLUE_PASSTHROUGH_OUTLINE: rgba(68, 92, 150, 0.6);
+    --dark-GOLD_PASSTHROUGH_OUTLINE: hsla(49, 100%, 50%, 0.6);
+    --dark-BLUE_PASSTHROUGH_OUTLINE: hsla(222, 38%, 43%, 0.6);
     --dark-GOLD: hsl(49, 99%, 51%);
     --dark-BLUE: hsl(238, 97%, 24%);
     --dark-GOLD_GRADIENT: linear-gradient(10deg, hsl(49, 50%, 38%), hsl(49, 70%, 59%));
@@ -23,21 +23,21 @@
     --dark-BLUE_GRADIENT_OUTLINE: hsl(212, 65%, 65%);
 
     --light-TEXT: hsl(0, 0%, 10%);
-    --light-BACKGROUND: hsl(30, 8%, 80%);
-    --light-BACKGROUND_PASSTHROUGH: hsla(30, 8%, 60%, 0.3);
-    --light-BACKGROUND_PASSTHROUGH_OUTLINE: hsla(30, 8%, 60%, 1);
-    --light-MODAL_BACKGROUND: hsl(30, 10%, 85%);
-    --light-MODAL_OUTLINE: hsl(30, 10%, 92%);
+    --light-BACKGROUND: hsl(195, 20%, 96.5%);
+    --light-BACKGROUND_PASSTHROUGH: hsla(195, 50%, 100%, 0.3);
+    --light-BACKGROUND_PASSTHROUGH_OUTLINE: hsla(195, 50%, 100%, 0.6);
+    --light-MODAL_BACKGROUND: hsl(195, 10%, 99%);
+    --light-MODAL_OUTLINE: hsl(195, 10%, 89%);
     --light-GOLD_PASSTHROUGH: hsla(49, 100%, 65%, 0.4);
     --light-BLUE_PASSTHROUGH: hsla(222, 38%, 43%, 0.4);
     --light-GOLD_PASSTHROUGH_OUTLINE: hsla(49, 100%, 50%, 0.6);
     --light-BLUE_PASSTHROUGH_OUTLINE: hsla(222, 38%, 43%, 0.6);
     --light-GOLD: hsl(49, 99%, 51%);
     --light-BLUE: hsl(238, 97%, 24%);
-    --light-GOLD_GRADIENT: linear-gradient(10deg, hsl(49, 45%, 48%), hsl(49, 100%, 79%));
-    --light-BLUE_GRADIENT: linear-gradient(10deg, hsl(212, 50%, 60%), hsl(212, 50%, 80%));
-    --light-GOLD_GRADIENT_OUTLINE: hsl(49, 100%, 65%);
-    --light-BLUE_GRADIENT_OUTLINE: hsl(212, 65%, 65%);
+    --light-GOLD_GRADIENT: linear-gradient(10deg, hsl(49, 85%, 75%), hsl(49, 95%, 85%));
+    --light-BLUE_GRADIENT: linear-gradient(10deg, hsl(212, 80%, 85%), hsl(212, 70%, 95%));
+    --light-GOLD_GRADIENT_OUTLINE: hsl(49, 100%, 80%);
+    --light-BLUE_GRADIENT_OUTLINE: hsl(212, 75%, 80%);
 
     --LINK_COLOR: var(--TEXT);
 
@@ -199,6 +199,7 @@ html::-webkit-scrollbar {
 /* For all other elements than listed above, inherit all font values */
 * {
     font: inherit;
+    corner-shape: superellipse(1.5);
 }
 
 /* Simple fade in effects */
